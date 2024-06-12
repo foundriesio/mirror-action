@@ -14,9 +14,9 @@ on: [push]
 
 jobs:
   to_foundries:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: foundriesio/mirror-action@master
         with:
           REMOTE: "https://source.foundries.io/factories/<FACTORY-NAME>/containers.git"
@@ -24,10 +24,10 @@ jobs:
           PUSH_ALL_REFS: "false"
 ```
 
-**NOTE:** This example pushes just the branch you working. If you want synchronize 
+**NOTE:** This example pushes just the branch you working. If you want synchronize
 all branches, set `PUSH_ALL_REFS: "true"`
 
-You can further customize the push behavior with the `GIT_PUSH_ARGS` parameter. 
+You can further customize the push behavior with the `GIT_PUSH_ARGS` parameter.
 By default, this is set to `--tags --force`
 
 If something goes wrong, you can debug by setting `DEBUG: "true"`
